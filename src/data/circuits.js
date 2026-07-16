@@ -1,32 +1,73 @@
 export const circuits = [
   {
-    id: "johannesburg-soweto",
-    title: "Johannesburg & Soweto",
-    subtitle: "L'âme de la plus grande ville d'Afrique du Sud",
-    region: "Gauteng",
-    category: "culture",
-    isNew: true,
-    desc: "Des rues historiques de Soweto à la silhouette moderne de Sandton : musée de l'Apartheid, maison de Mandela et marchés de Maboneng.",
-    duration: "Journée complète",
-    group: "Maximum 12 participants",
-    price: "2 800",
-    currency: "R",
-    image: "/images/johannesburg.jpg",
-    selectValue: "Johannesburg & Soweto",
-    about: [
-      "Explorez le cœur vibrant de Johannesburg lors d'une visite guidée d'une journée complète qui vous emmène des rues historiques de Soweto à la silhouette moderne de Sandton. Visitez le Musée de l'Apartheid, l'ancienne maison de Nelson Mandela ainsi que les marchés animés du quartier de Maboneng.",
-      "Cette excursion vous offre une immersion dans l'histoire complexe et inspirante de l'Afrique du Sud, depuis les luttes contre l'apartheid jusqu'au triomphe de la démocratie.",
-    ],
-    highlights: [
-      "Musée de l'Apartheid",
-      "Maison de Mandela à Soweto",
-      "Quartier de Maboneng",
-      "Point de vue de Munro Drive",
-      "Dégustation de spécialités locales",
-      "Constitution Hill",
-    ],
-    included: ["Guide professionnel", "Transport", "Droits d'entrée aux musées", "Déjeuner", "Rafraîchissements"],
-  },
+  id: "johannesburg",
+  title: "Johannesburg",
+  subtitle: "Le cœur dynamique de la ville d'or",
+  region: "Gauteng",
+  category: "culture",
+  isNew: true,
+  desc: "Découvrez les sites emblématiques de Johannesburg, entre histoire, art, architecture et quartiers modernes.",
+  duration: "Journée complète",
+  group: "Maximum 12 participants",
+  price: "2 800",
+  currency: "R",
+  image: "/images/johannesburg.jpg",
+  selectValue: "Johannesburg",
+  about: [
+    "Explorez Johannesburg lors d'une visite guidée qui vous fera découvrir les lieux incontournables de la ville. Visitez le Musée de l'Apartheid, Constitution Hill, le quartier créatif de Maboneng et profitez d'une vue panoramique depuis Munro Drive.",
+    "Surnommée la Ville d'Or, Johannesburg est le cœur économique de l'Afrique du Sud. Cette excursion vous permettra de découvrir son histoire, sa culture, son art urbain et son énergie contemporaine."
+  ],
+  highlights: [
+    "Musée de l'Apartheid",
+    "Constitution Hill",
+    "Quartier de Maboneng",
+    "Point de vue de Munro Drive",
+    "Centre-ville de Johannesburg",
+    "Dégustation de spécialités locales"
+  ],
+  included: [
+    "Guide professionnel",
+    "Transport",
+    "Droits d'entrée aux musées",
+    "Déjeuner",
+    "Rafraîchissements"
+  ],
+},
+
+  {
+  id: "soweto",
+  title: "Soweto",
+  subtitle: "Le cœur historique et culturel de l'Afrique du Sud",
+  region: "Gauteng",
+  category: "culture",
+  isNew: true,
+  desc: "Découvrez l'histoire, la culture et l'esprit de Soweto à travers ses rues emblématiques, ses musées et ses sites historiques.",
+  duration: "Journée complète",
+  group: "Maximum 12 participants",
+  price: "2 800",
+  currency: "R",
+  image: "/images/soweto.jpg",
+  selectValue: "Soweto",
+  about: [
+    "Partez à la découverte de Soweto, l'un des townships les plus célèbres au monde et symbole de la lutte contre l'apartheid. Visitez la maison de Nelson Mandela, la rue Vilakazi, le mémorial Hector Pieterson et plongez dans l'histoire qui a façonné l'Afrique du Sud moderne.",
+    "Au-delà de son histoire, Soweto est un lieu vivant où se mêlent culture, gastronomie locale, art urbain et hospitalité. Cette excursion offre une immersion authentique dans le quotidien et le patrimoine de cette communauté emblématique."
+  ],
+  highlights: [
+    "Maison de Nelson Mandela",
+    "Rue Vilakazi",
+    "Mémorial et Musée Hector Pieterson",
+    "Église Regina Mundi",
+    "Tours Orlando",
+    "Déjeuner traditionnel sud-africain"
+  ],
+  included: [
+    "Guide professionnel",
+    "Transport",
+    "Droits d'entrée aux sites",
+    "Déjeuner",
+    "Rafraîchissements"
+  ],
+},
 
   {
     id: "pretoria",
