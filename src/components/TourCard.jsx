@@ -12,8 +12,6 @@ export default function TourCard({ circuit, showFilterTag = false, onViewDetails
     navigate("/contact");
   }
 
-  const currency = circuit.currency || "€";
-
   return (
     <div className="bg-sand rounded-brand overflow-hidden shadow-brand flex flex-col">
       <button
@@ -61,9 +59,9 @@ export default function TourCard({ circuit, showFilterTag = false, onViewDetails
         </div>
         <div className="flex items-center justify-between border-t border-navy/10 pt-4 mb-3">
           <div className="font-bold text-base">
-            {currency === "€" ? `€${circuit.price}` : `${circuit.price} R`}
+            {t("Prix sur devis")}
             <span className="block font-normal text-[13px] opacity-60">
-              {t("À partir de")}{circuit.perPerson ? t(" (par personne)") : ""}
+              {t("Tarif adapté à vos besoins")}
             </span>
           </div>
         </div>

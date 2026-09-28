@@ -21,7 +21,7 @@ const circuitOptions = [
 
 const infoBlocks = [
   { icon: Phone, title: "Téléphone", lines: ["+27 81 783 9576", "Lun-Ven, 9h-18h (SAST)"] },
-  { icon: Mail, title: "Email", lines: ["info@manguissaenafrique.com", "Réponse sous 24h"] },
+  { icon: Mail, title: "Email", lines: ["info@manguissafrique.com", "Réponse sous 24h"] },
   { icon: MapPin, title: "Adresse", lines: ["5 Melrose Street, Johannesburg, Afrique du Sud"] },
   { icon: Clock, title: "Horaires", lines: ["Lun - Ven : 9h00 - 18h00", "Sam : 9h00 - 13h00"] },
 ];

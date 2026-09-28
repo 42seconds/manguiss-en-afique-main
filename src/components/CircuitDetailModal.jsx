@@ -25,9 +25,6 @@ export default function CircuitDetailModal({ circuit, onClose }) {
 
   if (!circuit) return null;
 
-  const currency = circuit.currency || "€";
-  const priceDisplay = currency === "€" ? `€${circuit.price}` : `${circuit.price} R`;
-
   function handleContinue() {
     setSelectedCircuit(circuit.selectValue);
     onClose();
@@ -76,12 +73,7 @@ export default function CircuitDetailModal({ circuit, onClose }) {
               <Users className="w-4 h-4 text-gold" strokeWidth={1.8} />
               {t(circuit.group)}
             </div>
-            <div className="ml-auto font-bold text-lg">
-              {priceDisplay}
-              <span className="font-normal text-xs opacity-60 ml-1">
-                {t("à partir de")}{circuit.perPerson ? t(" / pers.") : ""}
-              </span>
-            </div>
+            <div className="ml-auto font-bold text-lg">{t("Prix sur devis")}</div>
           </div>
 
           {circuit.about?.length > 0 && (

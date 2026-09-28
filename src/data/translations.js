@@ -83,7 +83,6 @@ export const translations = {
     "Voyageurs accompagnés": "Travelers accompanied",
     "Circuits disponibles": "Available tours",
     "Taux de satisfaction": "Satisfaction rate",
-    "Votre équipe": "Your team",
     "Prêt à nous rencontrer ?": "Ready to meet us?",
     "Parlons de votre prochain voyage en Afrique du Sud.": "Let's talk about your next trip to South Africa.",
     "Planifier mon voyage": "Plan my trip",
@@ -102,19 +101,10 @@ export const translations = {
     "Devis gratuit et transparent": "Free and transparent quote",
     "Un itinéraire détaillé et un prix clair sous 24h, sans frais cachés ni engagement.": "A detailed itinerary and clear pricing within 24 hours, with no hidden fees or commitment.",
 
-    // About Page Team Roles
-    "Fondateur & Guide Principal": "Founder & Lead Guide",
-    "Directrice des Opérations": "Director of Operations",
-    "Guide Safari Expert": "Expert Safari Guide",
-    "Spécialiste Œnotourisme": "Wine Tourism Specialist",
 
-    // About Page Team Bios
+    // Circuit names
     "Route des Vins": "Wine Route",
     "Durban & Culture Zouloue": "Durban & Zulu Culture",
-    "Passionné par les deux cultures, Pierre a créé Manguissa en Afrique pour partager sa double culture avec les voyageurs francophones.": "Passionate about both cultures, Pierre founded Manguissa in Africa to share his dual culture with French-speaking travelers.",
-    "Après 10 ans dans le tourisme de luxe en France, Sophie veille à un service d'excellence pour chaque voyageur.": "After 10 years in luxury tourism in France, Sophie ensures outstanding service for every traveler.",
-    "Originaire du Mpumalanga, Thabo est un guide certifié FGASA qui parle couramment le français. Sa connaissance de la brousse est inégalée.": "Originally from Mpumalanga, Thabo is a certified FGASA guide who speaks fluent French. His knowledge of the bush is unparalleled.",
-    "Sommelière diplômée, Claire conçoit nos circuits vinicoles et partage sa passion pour les vins sud-africains.": "A qualified sommelier, Claire designs our wine tours and shares her passion for South African wines.",
 
     // Gallery Page
     "Nos voyages en images": "Our travels in pictures",
@@ -176,13 +166,11 @@ export const translations = {
     // Tour Card & Modal details
     "Voir les détails": "View details",
     "Demander un devis": "Request a quote",
-    "À partir de": "From",
-    " (par personne)": " (per person)",
+    "Prix sur devis": "Price on request",
+    "Tarif adapté à vos besoins": "Tailored to your needs",
     "Nouveau": "New",
     "Populaire": "Popular",
     "Fermer": "Close",
-    "à partir de": "from",
-    " / pers.": " / person",
     "Points forts": "Highlights",
     "Ce qui est inclus": "What's included",
     "Non inclus": "Not included",
@@ -192,6 +180,7 @@ export const translations = {
     // Footer
     "Votre guide francophone de confiance pour découvrir les merveilles de l'Afrique du Sud.": "Your trusted French-speaking guide to discover the wonders of South Africa.",
     "Légal": "Legal",
+    "Suivez-nous": "Follow us",
     "Mentions légales": "Legal notice",
     "Politique de confidentialité": "Privacy policy",
     "© 2026 Manguissa en Afrique. Tous droits réservés.": "© 2026 Manguissa en Afrique. All rights reserved.",

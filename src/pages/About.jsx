@@ -36,33 +36,6 @@ const services = [
   },
 ];
 
-const team = [
-  {
-    initials: "PL",
-    name: "Pierre Lavigne",
-    role: "Fondateur & Guide Principal",
-    bio: "Passionné par les deux cultures, Pierre a créé Manguissa en Afrique pour partager sa double culture avec les voyageurs francophones.",
-  },
-  {
-    initials: "SM",
-    name: "Sophie Morel",
-    role: "Directrice des Opérations",
-    bio: "Après 10 ans dans le tourisme de luxe en France, Sophie veille à un service d'excellence pour chaque voyageur.",
-  },
-  {
-    initials: "TN",
-    name: "Thabo Nkosi",
-    role: "Guide Safari Expert",
-    bio: "Originaire du Mpumalanga, Thabo est un guide certifié FGASA qui parle couramment le français. Sa connaissance de la brousse est inégalée.",
-  },
-  {
-    initials: "CB",
-    name: "Claire Beaumont",
-    role: "Spécialiste Œnotourisme",
-    bio: "Sommelière diplômée, Claire conçoit nos circuits vinicoles et partage sa passion pour les vins sud-africains.",
-  },
-];
-
 export default function About() {
   const navigate = useNavigate();
   const { t } = useLanguage();
@@ -122,28 +95,6 @@ export default function About() {
           <StatItem value={5000} suffix="+" space label={t("Voyageurs accompagnés")} animate />
           <StatItem value={50} suffix="+" label={t("Circuits disponibles")} animate />
           <StatItem value={98} suffix="%" label={t("Taux de satisfaction")} animate />
-        </div>
-      </section>
-
-      <section className="py-24 border-t border-navy/10">
-        <div className="max-w-[1180px] mx-auto px-8">
-          <div className="text-center max-w-[640px] mx-auto mb-14">
-            <div className="text-[13px] uppercase tracking-wider font-semibold text-gold">{t("Votre équipe")}</div>
-            <h2 className="text-heading-sm mt-2.5 mb-3.5">{t("Nos Guides")}</h2>
-            <p className="text-lg opacity-65">{t("Des passionnés à votre service, à chaque étape de votre voyage.")}</p>
-          </div>
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-5">
-            {team.map((m) => (
-              <div key={m.initials} className="bg-white border border-navy/10 rounded-brand p-7 text-center shadow-brand">
-                <div className="w-16 h-16 rounded-full bg-navy text-white flex items-center justify-center font-bold text-lg mx-auto mb-4">
-                  {m.initials}
-                </div>
-                <h3 className="font-semibold text-[17px] mb-1">{t(m.name)}</h3>
-                <div className="text-[13px] text-gold font-semibold mb-3">{t(m.role)}</div>
-                <p className="text-[13.5px] opacity-65 leading-relaxed">{t(m.bio)}</p>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 

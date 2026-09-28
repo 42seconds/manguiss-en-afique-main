@@ -9,8 +9,6 @@ export const circuits = [
   desc: "Découvrez les sites emblématiques de Johannesburg, entre histoire, art, architecture et quartiers modernes.",
   duration: "Journée complète",
   group: "Maximum 12 participants",
-  price: "2 800",
-  currency: "R",
   image: "/images/johannesburg.jpg",
   selectValue: "Johannesburg",
   about: [
@@ -44,8 +42,6 @@ export const circuits = [
   desc: "Découvrez l'histoire, la culture et l'esprit de Soweto à travers ses rues emblématiques, ses musées et ses sites historiques.",
   duration: "Journée complète",
   group: "Maximum 12 participants",
-  price: "2 800",
-  currency: "R",
   image: "/images/soweto.jpg",
   selectValue: "Soweto",
   about: [
@@ -79,9 +75,6 @@ export const circuits = [
     desc: "Visitez la capitale administrative, ses jardins, ses musées et l'imposant Union Buildings.",
     duration: "Journée complète",
     group: "Maximum 12 participants",
-    price: "2 800",
-    currency: "R",
-    perPerson: true,
     image: "/images/pretoria.jpg",
     selectValue: "Pretoria",
     about: [
@@ -117,8 +110,6 @@ export const circuits = [
     desc: "Détente, nature, divertissement et luxe au cœur du complexe de Sun City, à proximité du Parc national de Pilanesberg.",
     duration: "Journée complète",
     group: "Maximum 12 participants",
-    price: "2 800",
-    currency: "R",
     image: "/images/sun-city.jpg",
     selectValue: "Sun City",
     about: [
@@ -154,8 +145,6 @@ export const circuits = [
     desc: "Vivez l'aventure ultime dans la plus grande réserve animalière d'Afrique du Sud. Observez les Big Five dans leur habitat naturel avec un guide expert.",
     duration: "3 jours / 2 nuits",
     group: "Maximum 8 participants",
-    price: "12 500",
-    currency: "R",
     image: "/images/kruger.jpg",
     selectValue: "Safari au Parc Kruger",
     about: [
@@ -193,9 +182,6 @@ export const circuits = [
     desc: "Dégustez les meilleurs crus sud-africains dans les domaines historiques de la région viticole du Cap.",
     duration: "Journée complète",
     group: "Maximum 12 participants",
-    price: "2800",
-    currency: "R",
-    perPerson: true,
     image: "/images/stellenbosch.jpg",
     selectValue: "Route des Vins",
     about: [
@@ -230,9 +216,6 @@ export const circuits = [
     desc: "Parcourez l'une des plus belles routes côtières du monde entre forêts luxuriantes et océan turquoise.",
     duration: "3 à 5 jours recommandés",
     group: "Maximum 12 personnes",
-    price: "12 500",
-    currency: "R",
-    perPerson: true,
     image: "/images/garden-route.jpg",
     selectValue: "Route des Jardins",
     about: [
@@ -270,9 +253,6 @@ export const circuits = [
     desc: "Explorez la ville mère de l'Afrique du Sud : Table Mountain, le Bo-Kaap et le Cap de Bonne-Espérance.",
     duration: "Journée complète",
     group: "Maximum 12 participants",
-    price: "6500",
-    currency: "R",
-    perPerson: true,
     image: "/images/cape-town.jpg",
     selectValue: "Le Cap & Péninsule",
     about: [
@@ -308,8 +288,6 @@ export const circuits = [
     desc: "Découvrez le Blyde River Canyon, le troisième plus grand canyon du monde, et ses formations rocheuses.",
     duration: "Journée complète",
     group: "Maximum 12 participants",
-    price: "2 800",
-    currency: "R",
     image: "/images/panoramic-route.jpg",
     selectValue: "Route Panoramique",
     about: [
@@ -343,8 +321,6 @@ export const circuits = [
     desc: "Profitez d'un safari exclusif dans une réserve privée adjacente au Kruger. Hébergement de luxe.",
     duration: "3 jours / 2 nuits",
     group: "2 à 4 participants",
-    price: "2 500",
-    currency: "R",
     image: "/images/private-reserve.jpg",
     selectValue: "Safari en Réserve Privée",
     about: [
@@ -379,8 +355,6 @@ export const circuits = [
     desc: "Partez à l'assaut des montagnes du Drakensberg, classées au patrimoine mondial de l'UNESCO.",
     duration: "2 jours / 1 nuit",
     group: "Maximum 6 participants",
-    price: "6 800",
-    currency: "R",
     image: "/images/drakensberg.jpg",
     selectValue: "Randonnée au Drakensberg",
     about: [
@@ -405,9 +379,6 @@ export const circuits = [
     desc: "Immergez-vous dans la culture zouloue, visitez des villages traditionnels et la ville de Durban.",
     duration: "2 jours",
     group: "2 à 10 personnes",
-    price: "6500",
-    currency: "R",
-    perPerson: true,
     image: "/images/durban-zulu.jpg",
     selectValue: "Culture Zouloue & Durban",
     about: [
