@@ -1,11 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import { useCircuit } from "../context/CircuitContext";
 import { useLanguage } from "../context/LanguageContext";
+import { filterCategories } from "../data/circuits";
 
 export default function TourCard({ circuit, showFilterTag = false, onViewDetails }) {
   const navigate = useNavigate();
   const { setSelectedCircuit } = useCircuit();
   const { t } = useLanguage();
+  const categoryLabel = filterCategories.find((f) => f.key === circuit.category)?.label ?? circuit.category;
 
   function handleReserve() {
     setSelectedCircuit(circuit.selectValue);
@@ -19,13 +21,15 @@ export default function TourCard({ circuit, showFilterTag = false, onViewDetails
         className="h-[200px] relative flex items-end p-4 overflow-hidden bg-gradient-to-br from-gold/70 to-navy/70 text-left w-full"
         aria-label={`Voir les détails de ${t(circuit.title)}`}
       >
-        <img
-          src={circuit.image}
-          alt={t(circuit.title)}
-          loading="lazy"
-          onError={(e) => (e.currentTarget.style.display = "none")}
-          className="absolute inset-0 w-full h-full object-cover"
-        />
+        {circuit.image && (
+          <img
+            src={circuit.image}
+            alt={t(circuit.title)}
+            loading="lazy"
+            onError={(e) => (e.currentTarget.style.display = "none")}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        )}
         <div className="relative z-10 flex gap-1.5 flex-wrap">
           {circuit.badge && (
             <span className="bg-gold text-white text-xs font-semibold px-3 py-1.5 rounded-full">
@@ -34,7 +38,7 @@ export default function TourCard({ circuit, showFilterTag = false, onViewDetails
           )}
           {showFilterTag && (
             <span className="bg-white/90 text-navy text-xs font-semibold px-3 py-1.5 rounded-full capitalize">
-              {t(circuit.category)}
+              {t(categoryLabel)}
             </span>
           )}
           {circuit.isNew && (

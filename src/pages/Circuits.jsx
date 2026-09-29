@@ -17,7 +17,7 @@ export default function Circuits() {
           <div className="text-[13px] uppercase tracking-wider font-semibold text-gold">{t("Explorez")}</div>
           <h1 className="text-heading-lg mt-2.5 mb-4.5">{t("Nos Circuits")}</h1>
           <p className="text-lg opacity-65 max-w-[560px] mx-auto">
-            {t("Du safari au Big Five à la dégustation de vins, trouvez le circuit parfait pour votre aventure sud-africaine.")}
+            {t("Safaris, culture et histoire autour de Johannesburg et Pretoria : trouvez l'excursion faite pour vous et demandez votre devis personnalisé.")}
           </p>
         </div>
       </section>

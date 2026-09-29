@@ -40,13 +40,15 @@ export default function CircuitDetailModal({ circuit, onClose }) {
         className="bg-bg w-full max-w-2xl max-h-[88vh] overflow-y-auto rounded-brand shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="relative h-56 overflow-hidden">
-          <img
-            src={circuit.image}
-            alt={t(circuit.title)}
-            onError={(e) => (e.currentTarget.style.display = "none")}
-            className="absolute inset-0 w-full h-full object-cover"
-          />
+        <div className="relative h-56 overflow-hidden bg-gradient-to-br from-gold/70 to-navy/70">
+          {circuit.image && (
+            <img
+              src={circuit.image}
+              alt={t(circuit.title)}
+              onError={(e) => (e.currentTarget.style.display = "none")}
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+          )}
           <div className="absolute inset-0 bg-gradient-to-t from-navydeep/80 via-navydeep/10 to-transparent" />
           <button
             onClick={onClose}
@@ -91,8 +93,8 @@ export default function CircuitDetailModal({ circuit, onClose }) {
             <div className="mb-7">
               <h3 className="text-sm font-semibold uppercase tracking-wide text-gold mb-3">{t("Points forts")}</h3>
               <ul className="grid sm:grid-cols-2 gap-2.5">
-                {circuit.highlights.map((h) => (
-                  <li key={h} className="flex items-start gap-2 text-sm">
+                {circuit.highlights.map((h, i) => (
+                  <li key={i} className="flex items-start gap-2 text-sm">
                     <CheckCircle2 className="w-4 h-4 text-navy mt-0.5 flex-shrink-0" strokeWidth={1.8} />
                     <span className="opacity-85">{t(h)}</span>
                   </li>
@@ -105,8 +107,8 @@ export default function CircuitDetailModal({ circuit, onClose }) {
             <div className="mb-2">
               <h3 className="text-sm font-semibold uppercase tracking-wide text-gold mb-3">{t("Ce qui est inclus")}</h3>
               <ul className="grid sm:grid-cols-2 gap-2.5">
-                {circuit.included.map((inc) => (
-                  <li key={inc} className="flex items-start gap-2 text-sm">
+                {circuit.included.map((inc, i) => (
+                  <li key={i} className="flex items-start gap-2 text-sm">
                     <CheckCircle2 className="w-4 h-4 text-navy mt-0.5 flex-shrink-0" strokeWidth={1.8} />
                     <span className="opacity-85">{t(inc)}</span>
                   </li>
@@ -119,8 +121,8 @@ export default function CircuitDetailModal({ circuit, onClose }) {
             <div className="mt-5">
               <h3 className="text-sm font-semibold uppercase tracking-wide opacity-50 mb-3">{t("Non inclus")}</h3>
               <ul className="grid sm:grid-cols-2 gap-2.5">
-                {circuit.notIncluded.map((exc) => (
-                  <li key={exc} className="flex items-start gap-2 text-sm opacity-60">
+                {circuit.notIncluded.map((exc, i) => (
+                  <li key={i} className="flex items-start gap-2 text-sm opacity-60">
                     <XCircle className="w-4 h-4 mt-0.5 flex-shrink-0" strokeWidth={1.8} />
                     {t(exc)}
                   </li>

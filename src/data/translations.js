@@ -124,7 +124,7 @@ export const translations = {
 
     // Circuits Page
     "Explorez": "Explore",
-    "Du safari au Big Five à la dégustation de vins, trouvez le circuit parfait pour votre aventure sud-africaine.": "From Big Five safaris to wine tastings, find the perfect tour for your South African adventure.",
+    "Safaris, culture et histoire autour de Johannesburg et Pretoria : trouvez l'excursion faite pour vous et demandez votre devis personnalisé.": "Safaris, culture and history around Johannesburg and Pretoria: find the tour that suits you and request your personalised quote.",
     "Tous": "All",
     "Safari": "Safari",
     "Nature": "Nature",
