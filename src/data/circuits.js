@@ -18,6 +18,7 @@ export const circuits = [
     duration: { fr: "Journée complète", en: "Full day" },
     group: { fr: "À partir de 2 personnes", en: "From 2 guests" },
     image: "/images/tours/pretoria-cullinan.jpg",
+    imagePosition: "center 20%",
     selectValue: "Pretoria & la mine de Cullinan",
     about: [
       {

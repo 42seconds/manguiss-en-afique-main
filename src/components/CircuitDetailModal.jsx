@@ -45,6 +45,7 @@ export default function CircuitDetailModal({ circuit, onClose }) {
             <img
               src={circuit.image}
               alt={t(circuit.title)}
+              style={{ objectPosition: circuit.imagePosition }}
               onError={(e) => (e.currentTarget.style.display = "none")}
               className="absolute inset-0 w-full h-full object-cover"
             />

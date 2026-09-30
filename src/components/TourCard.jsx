@@ -26,6 +26,7 @@ export default function TourCard({ circuit, showFilterTag = false, onViewDetails
             src={circuit.image}
             alt={t(circuit.title)}
             loading="lazy"
+            style={{ objectPosition: circuit.imagePosition }}
             onError={(e) => (e.currentTarget.style.display = "none")}
             className="absolute inset-0 w-full h-full object-cover"
           />
