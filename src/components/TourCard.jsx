@@ -1,18 +1,18 @@
 import { useNavigate } from "react-router-dom";
 import { useCircuit } from "../context/CircuitContext";
 import { useLanguage } from "../context/LanguageContext";
+import { filterCategories } from "../data/circuits";
 
 export default function TourCard({ circuit, showFilterTag = false, onViewDetails }) {
   const navigate = useNavigate();
   const { setSelectedCircuit } = useCircuit();
   const { t } = useLanguage();
+  const categoryLabel = filterCategories.find((f) => f.key === circuit.category)?.label ?? circuit.category;
 
   function handleReserve() {
     setSelectedCircuit(circuit.selectValue);
     navigate("/contact");
   }
-
-  const currency = circuit.currency || "€";
 
   return (
     <div className="bg-sand rounded-brand overflow-hidden shadow-brand flex flex-col">
@@ -21,13 +21,15 @@ export default function TourCard({ circuit, showFilterTag = false, onViewDetails
         className="h-[200px] relative flex items-end p-4 overflow-hidden bg-gradient-to-br from-gold/70 to-navy/70 text-left w-full"
         aria-label={`Voir les détails de ${t(circuit.title)}`}
       >
-        <img
-          src={circuit.image}
-          alt={t(circuit.title)}
-          loading="lazy"
-          onError={(e) => (e.currentTarget.style.display = "none")}
-          className="absolute inset-0 w-full h-full object-cover"
-        />
+        {circuit.image && (
+          <img
+            src={circuit.image}
+            alt={t(circuit.title)}
+            loading="lazy"
+            onError={(e) => (e.currentTarget.style.display = "none")}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        )}
         <div className="relative z-10 flex gap-1.5 flex-wrap">
           {circuit.badge && (
             <span className="bg-gold text-white text-xs font-semibold px-3 py-1.5 rounded-full">
@@ -36,7 +38,7 @@ export default function TourCard({ circuit, showFilterTag = false, onViewDetails
           )}
           {showFilterTag && (
             <span className="bg-white/90 text-navy text-xs font-semibold px-3 py-1.5 rounded-full capitalize">
-              {t(circuit.category)}
+              {t(categoryLabel)}
             </span>
           )}
           {circuit.isNew && (
@@ -61,9 +63,9 @@ export default function TourCard({ circuit, showFilterTag = false, onViewDetails
         </div>
         <div className="flex items-center justify-between border-t border-navy/10 pt-4 mb-3">
           <div className="font-bold text-base">
-            {currency === "€" ? `€${circuit.price}` : `${circuit.price} R`}
+            {t("Prix sur devis")}
             <span className="block font-normal text-[13px] opacity-60">
-              {t("À partir de")}{circuit.perPerson ? t(" (par personne)") : ""}
+              {t("Tarif adapté à vos besoins")}
             </span>
           </div>
         </div>

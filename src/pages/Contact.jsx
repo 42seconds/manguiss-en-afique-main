@@ -2,26 +2,17 @@ import { useState } from "react";
 import { Phone, Mail, MapPin, Clock, CheckCircle2 } from "lucide-react";
 import { useCircuit } from "../context/CircuitContext";
 import { useLanguage } from "../context/LanguageContext";
+import { circuits } from "../data/circuits";
 
 const circuitOptions = [
-  "Choisir un circuit",
-  "Safari au Parc Kruger",
-  "Route des Vins",
-  "Route des Jardins",
-  "Le Cap & Péninsule",
-  "Route Panoramique",
-  "Safari en Réserve Privée",
-  "Randonnée au Drakensberg",
-  "Culture Zouloue & Durban",
-  "Johannesburg & Soweto",
-  "Pretoria",
-  "Sun City",
-  "Circuit sur mesure",
+  { value: "Choisir un circuit", label: "Choisir un circuit" },
+  ...circuits.map((c) => ({ value: c.selectValue, label: c.title })),
+  { value: "Circuit sur mesure", label: "Circuit sur mesure" },
 ];
 
 const infoBlocks = [
   { icon: Phone, title: "Téléphone", lines: ["+27 81 783 9576", "Lun-Ven, 9h-18h (SAST)"] },
-  { icon: Mail, title: "Email", lines: ["info@manguissaenafrique.com", "Réponse sous 24h"] },
+  { icon: Mail, title: "Email", lines: ["info@manguissafrique.com", "Réponse sous 24h"] },
   { icon: MapPin, title: "Adresse", lines: ["5 Melrose Street, Johannesburg, Afrique du Sud"] },
   { icon: Clock, title: "Horaires", lines: ["Lun - Ven : 9h00 - 18h00", "Sam : 9h00 - 13h00"] },
 ];
@@ -136,7 +127,7 @@ export default function Contact() {
                       className="w-full px-4 py-3 rounded-brand border border-navy/10 bg-white text-[15px]"
                     >
                       {circuitOptions.map((opt) => (
-                        <option key={opt} value={opt}>{t(opt)}</option>
+                        <option key={opt.value} value={opt.value}>{t(opt.label)}</option>
                       ))}
                     </select>
                   </div>
