@@ -346,6 +346,7 @@ export const circuits = [
     duration: { fr: "Safari de 3 h ou 6 h", en: "3 or 6-hour safari" },
     group: { fr: "À partir de 2 personnes", en: "From 2 guests" },
     image: "/images/tours/pilanesberg.jpg",
+    imagePosition: "center 80%",
     selectValue: "Safari à Pilanesberg",
     about: [
       {
