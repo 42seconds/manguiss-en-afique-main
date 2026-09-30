@@ -50,7 +50,7 @@ export default function Hero() {
           )}
         </h1>
         <p className="text-[19px] text-white/90 max-w-[560px] mx-auto mb-10">
-          {t("Des safaris aux vignobles, vivez une expérience authentique avec nos guides francophones passionnés.")}
+          {t("Safaris, Soweto, Pretoria et traditions sud-africaines : vivez une expérience authentique avec nos guides francophones passionnés.")}
         </p>
         <div className="flex gap-4 justify-center flex-wrap">
           <button

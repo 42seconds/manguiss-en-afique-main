@@ -75,8 +75,8 @@ export default function Footer() {
           <div>
             <h4 className="text-xs uppercase tracking-wider opacity-55 font-semibold mb-4">{t("Légal")}</h4>
             <ul className="space-y-2.5 text-sm opacity-85">
-              <li><a href="#" className="hover:opacity-70">{t("Mentions légales")}</a></li>
-              <li><a href="#" className="hover:opacity-70">{t("Politique de confidentialité")}</a></li>
+              <li><Link to="/mentions-legales" className="hover:opacity-70">{t("Mentions légales")}</Link></li>
+              <li><Link to="/confidentialite" className="hover:opacity-70">{t("Politique de confidentialité")}</Link></li>
             </ul>
           </div>
 

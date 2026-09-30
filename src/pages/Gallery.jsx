@@ -1,79 +1,17 @@
 import { useState } from "react";
 import { useLanguage } from "../context/LanguageContext";
 import { ChevronLeft, ChevronRight, X, Image as ImageIcon } from "lucide-react";
+import { circuits, filterCategories } from "../data/circuits";
 
-const items = [
-  {
-    num: "01",
-    label: "Safari au Parc Kruger",
-    category: "Safari",
-    image: "/images/kruger.jpg",
-    desc: "Rencontre avec les Big Five dans la brousse mythique."
-  },
-  {
-    num: "02",
-    label: "Route des Vins",
-    category: "Gastronomie",
-    image: "/images/stellenbosch.jpg",
-    desc: "Dégustations d'exception au cœur de vignobles centenaires."
-  },
-  {
-    num: "03",
-    label: "Route des Jardins",
-    category: "Nature",
-    image: "/images/garden-route.jpg",
-    desc: "Un littoral sauvage entre forêts denses et lagunes d'émeraude."
-  },
-  {
-    num: "04",
-    label: "Le Cap",
-    category: "Villes",
-    image: "/images/cape-town.jpg",
-    desc: "Une péninsule spectaculaire dominée par l'emblématique Table Mountain."
-  },
-  {
-    num: "05",
-    label: "Drakensberg",
-    category: "Nature",
-    image: "/images/drakensberg.jpg",
-    desc: "Des sommets grandioses sculptés par le vent et l'histoire."
-  },
-  {
-    num: "06",
-    label: "Johannesburg",
-    category: "Villes",
-    image: "/images/johannesburg.jpg",
-    desc: "L'énergie créative de la métropole d'or de l'Afrique."
-  },
-  {
-    num: "07",
-    label: "Soweto",
-    category: "Culture",
-    image: "/images/soweto.jpg",
-    desc: "Plongez au cœur de l'histoire vibrante de la lutte pour la liberté."
-  },
-  {
-    num: "08",
-    label: "Pretoria",
-    category: "Villes",
-    image: "/images/pretoria.jpg",
-    desc: "La capitale administrative baignée dans la violette des jacarandas."
-  },
-  {
-    num: "09",
-    label: "Durban & Culture Zouloue",
-    category: "Culture",
-    image: "/images/durban-zulu.jpg",
-    desc: "Un littoral subtropical chaleureux imprégné des traditions zouloues."
-  },
-  {
-    num: "10",
-    label: "Sun City",
-    category: "Loisirs",
-    image: "/images/sun-city.jpg",
-    desc: "Un oasis de divertissement extraordinaire au milieu du bushveld."
-  },
-];
+// One gallery entry per tour, so photos and descriptions stay in sync with the Circuits page.
+const items = circuits.map((c, i) => ({
+  num: String(i + 1).padStart(2, "0"),
+  label: c.title,
+  category: filterCategories.find((f) => f.key === c.category)?.label ?? c.category,
+  image: c.image,
+  desc: c.subtitle,
+  detail: c.desc,
+}));
 
 export default function Gallery() {
   const { t } = useLanguage();
@@ -107,7 +45,7 @@ export default function Gallery() {
           <div className="text-[13px] uppercase tracking-wider font-semibold text-gold mb-2">{t("Galerie")}</div>
           <h1 className="text-heading-lg font-bold text-navy mt-1.5 mb-4">{t("Nos voyages en images")}</h1>
           <p className="text-lg opacity-65 max-w-[580px] mx-auto leading-relaxed">
-            {t("Un aperçu des moments capturés par nos voyageurs et nos guides à travers l'Afrique du Sud.")}
+            {t("Découvrez en images les lieux que nous vous faisons visiter, de Soweto aux réserves de safari.")}
           </p>
         </div>
       </section>
@@ -124,7 +62,7 @@ export default function Gallery() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
               {filteredItems.map((it, idx) => (
                 <div
-                  key={it.label}
+                  key={it.num}
                   onClick={() => openLightbox(idx)}
                   className="group cursor-pointer flex flex-col"
                 >
@@ -158,7 +96,7 @@ export default function Gallery() {
                     </h3>
                     
                     <p className="text-[13.5px] opacity-60 leading-relaxed mt-1.5">
-                      {t(it.desc)}
+                      {t(it.detail)}
                     </p>
                   </div>
                 </div>
@@ -181,6 +119,7 @@ export default function Gallery() {
             </span>
             <button
               onClick={closeLightbox}
+              aria-label={t("Fermer")}
               className="p-2 rounded-full hover:bg-white/10 text-white transition-colors cursor-pointer"
             >
               <X className="h-6 w-6" />
@@ -191,6 +130,7 @@ export default function Gallery() {
           <div className="relative flex-1 flex items-center justify-center max-h-[75vh]">
             <button
               onClick={showPrev}
+              aria-label={t("Précédent")}
               className="absolute left-0 md:-left-4 p-3 rounded-full bg-black/40 hover:bg-black/60 text-white transition-colors cursor-pointer z-10"
             >
               <ChevronLeft className="h-6 w-6" />
@@ -205,6 +145,7 @@ export default function Gallery() {
 
             <button
               onClick={showNext}
+              aria-label={t("Suivant")}
               className="absolute right-0 md:-right-4 p-3 rounded-full bg-black/40 hover:bg-black/60 text-white transition-colors cursor-pointer z-10"
             >
               <ChevronRight className="h-6 w-6" />
@@ -222,8 +163,11 @@ export default function Gallery() {
             <h2 className="text-xl font-bold mb-2">
               {t(filteredItems[lightboxIndex].label)}
             </h2>
-            <p className="text-sm opacity-70 leading-relaxed">
+            <p className="text-sm opacity-80 leading-relaxed">
               {t(filteredItems[lightboxIndex].desc)}
+            </p>
+            <p className="text-sm opacity-60 leading-relaxed mt-1.5">
+              {t(filteredItems[lightboxIndex].detail)}
             </p>
           </div>
         </div>
