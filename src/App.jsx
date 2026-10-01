@@ -9,6 +9,7 @@ import Circuits from "./pages/Circuits";
 import Gallery from "./pages/Gallery";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import { LegalNotice, PrivacyPolicy } from "./pages/Legal";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -31,6 +32,8 @@ export default function App() {
             <Route path="/galerie" element={<Gallery />} />
             <Route path="/a-propos" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/mentions-legales" element={<LegalNotice />} />
+            <Route path="/confidentialite" element={<PrivacyPolicy />} />
           </Routes>
           <Footer />
         </CircuitProvider>

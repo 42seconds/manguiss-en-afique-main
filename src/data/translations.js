@@ -2,8 +2,6 @@ export const translations = {
   fr: {},
   en: {
     // Brand & General
-    "Manguissa en Afrique": "Manguissa in Africa",
-    "en Afrique": "in Africa",
     "Accueil": "Home",
     "Nos Circuits": "Our Tours",
     "Galerie": "Gallery",
@@ -18,7 +16,7 @@ export const translations = {
     "+500 voyageurs satisfaits": "+500 satisfied travelers",
     "Découvrez l'Afrique\ndu Sud en français": "Discover South\nAfrica in French",
     "Découvrez l'Afrique du Sud en français": "Discover South Africa in French",
-    "Des safaris aux vignobles, vivez une expérience authentique avec nos guides francophones passionnés.": "From safaris to vineyards, experience an authentic journey with our passionate French-speaking guides.",
+    "Safaris, Soweto, Pretoria et traditions sud-africaines : vivez une expérience authentique avec nos guides francophones passionnés.": "Safaris, Soweto, Pretoria and South African traditions: enjoy an authentic experience with our passionate French-speaking guides.",
     "Découvrir nos circuits": "Discover our tours",
     "Nous contacter": "Contact us",
 
@@ -108,7 +106,9 @@ export const translations = {
 
     // Gallery Page
     "Nos voyages en images": "Our travels in pictures",
-    "Un aperçu des moments capturés par nos voyageurs et nos guides à travers l'Afrique du Sud.": "A glimpse of the moments captured by our travelers and guides across South Africa.",
+    "Découvrez en images les lieux que nous vous faisons visiter, de Soweto aux réserves de safari.": "See the places we take you to, from Soweto to the safari reserves.",
+    "Précédent": "Previous",
+    "Suivant": "Next",
     "Villes": "Cities",
     "Loisirs": "Leisure",
     "Rencontre avec les Big Five dans la brousse mythique.": "Encounter the Big Five in the legendary bush.",
@@ -426,6 +426,17 @@ export const translations = {
     "Temps libre pour découvrir le complexe": "Free time to discover the resort",
     "Prise en charge et retour à votre hôtel": "Pick-up and drop-off at your hotel",
     "Entrée à Valley of Waves (si applicable)": "Entrance to Valley of Waves (if applicable)",
-    "Safari optionnel à Pilanesberg": "Optional safari in Pilanesberg"
+    "Safari optionnel à Pilanesberg": "Optional safari in Pilanesberg",
+
+    // Added: keys that had no English entry
+    "À propos": "About",
+    "Navigation": "Navigation",
+    "Membre agréé SATSA": "Accredited SATSA member",
+    "Parlons de votre voyage": "Let's talk about your trip",
+    "Email *": "Email *",
+    "Téléphone": "Phone",
+    "Adresse": "Address",
+    "Aucune image disponible": "No images available",
+    "Depuis plus de 15 ans, nous accompagnons les voyageurs francophones dans leur découverte de l'Afrique du Sud. Notre passion et notre expertise font de chaque voyage un moment inoubliable.": "For more than 15 years, we have guided French-speaking travellers as they discover South Africa. Our passion and expertise make every trip unforgettable.",
   }
 };

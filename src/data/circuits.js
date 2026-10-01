@@ -1,5 +1,6 @@
 // Text fields are { fr, en } pairs, resolved by t() from LanguageContext.
 // No prices on purpose: every tour leads to a quote request.
+// Each tour's photo is public/images/tours/<id>.jpg — replace that file to change it.
 export const circuits = [
   {
     id: "pretoria-cullinan",
@@ -16,7 +17,8 @@ export const circuits = [
     },
     duration: { fr: "Journée complète", en: "Full day" },
     group: { fr: "À partir de 2 personnes", en: "From 2 guests" },
-    image: "/images/pretoria.jpg",
+    image: "/images/tours/pretoria-cullinan.jpg",
+    imagePosition: "center 20%",
     selectValue: "Pretoria & la mine de Cullinan",
     about: [
       {
@@ -58,7 +60,7 @@ export const circuits = [
     },
     duration: { fr: "Journée complète", en: "Full day" },
     group: { fr: "À partir de 2 personnes", en: "From 2 guests" },
-    image: "/images/johannesburg.jpg",
+    image: "/images/tours/johannesburg.jpg",
     selectValue: "Johannesburg, la ville de l'or",
     about: [
       {
@@ -99,7 +101,7 @@ export const circuits = [
     },
     duration: { fr: "2 h 30 ou 4 h", en: "2.5 or 4 hours" },
     group: { fr: "À partir de 2 personnes", en: "From 2 guests" },
-    image: "/images/soweto.jpg",
+    image: "/images/tours/soweto-velo.jpg",
     selectValue: "Soweto à vélo",
     about: [
       {
@@ -142,7 +144,7 @@ export const circuits = [
     },
     duration: { fr: "Demi-journée", en: "Half day" },
     group: { fr: "À partir de 2 personnes", en: "From 2 guests" },
-    image: "/images/soweto.jpg",
+    image: "/images/tours/soweto-tuktuk.jpg",
     selectValue: "Soweto en tuk-tuk",
     about: [
       {
@@ -185,7 +187,7 @@ export const circuits = [
     },
     duration: { fr: "Demi-journée", en: "Half day" },
     group: { fr: "À partir de 4 personnes", en: "From 4 guests" },
-    image: "/images/private-reserve.jpg",
+    image: "/images/tours/dinokeng.jpg",
     selectValue: "Safari à Dinokeng",
     about: [
       {
@@ -226,7 +228,7 @@ export const circuits = [
     },
     duration: { fr: "Demi-journée", en: "Half day" },
     group: { fr: "À partir de 2 personnes", en: "From 2 guests" },
-    image: "/images/kruger.jpg",
+    image: "/images/tours/lion-park.jpg",
     selectValue: "Lion & Safari Park",
     about: [
       {
@@ -261,7 +263,7 @@ export const circuits = [
     },
     duration: { fr: "Demi-journée", en: "Half day" },
     group: { fr: "À partir de 2 personnes", en: "From 2 guests" },
-    image: "/images/durban-zulu.jpg",
+    image: "/images/tours/lesedi.jpg",
     selectValue: "Village culturel de Lesedi",
     about: [
       {
@@ -293,7 +295,7 @@ export const circuits = [
       fr: "Culture et safari réunis en une seule journée",
       en: "Culture and safari in a single day",
     },
-    region: "Gauteng / Nord-Ouest",
+    region: { fr: "Gauteng / Nord-Ouest", en: "Gauteng / North West" },
     category: "culture",
     desc: {
       fr: "Le meilleur des deux mondes : le village culturel de Lesedi et un safari de 2 heures au Lion & Safari Park.",
@@ -301,7 +303,7 @@ export const circuits = [
     },
     duration: { fr: "Journée complète", en: "Full day" },
     group: { fr: "À partir de 2 personnes", en: "From 2 guests" },
-    image: "/images/durban-zulu.jpg",
+    image: "/images/tours/lesedi-lion-park.jpg",
     selectValue: "Lesedi & Lion Park",
     about: [
       {
@@ -343,7 +345,8 @@ export const circuits = [
     },
     duration: { fr: "Safari de 3 h ou 6 h", en: "3 or 6-hour safari" },
     group: { fr: "À partir de 2 personnes", en: "From 2 guests" },
-    image: "/images/sun-city.jpg",
+    image: "/images/tours/pilanesberg.jpg",
+    imagePosition: "center 80%",
     selectValue: "Safari à Pilanesberg",
     about: [
       {
@@ -383,7 +386,7 @@ export const circuits = [
     },
     duration: { fr: "Demi-journée", en: "Half day" },
     group: { fr: "À partir de 2 personnes", en: "From 2 guests" },
-    image: null,
+    image: "/images/tours/maropeng.jpg",
     selectValue: "Berceau de l'Humanité & Maropeng",
     about: [
       {
