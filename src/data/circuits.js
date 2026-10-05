@@ -188,6 +188,7 @@ export const circuits = [
     duration: { fr: "Demi-journée", en: "Half day" },
     group: { fr: "À partir de 4 personnes", en: "From 4 guests" },
     image: "/images/tours/dinokeng.jpg",
+    imagePosition: "center 35%",
     selectValue: "Safari à Dinokeng",
     about: [
       {
@@ -264,6 +265,7 @@ export const circuits = [
     duration: { fr: "Demi-journée", en: "Half day" },
     group: { fr: "À partir de 2 personnes", en: "From 2 guests" },
     image: "/images/tours/lesedi.jpg",
+    imagePosition: "center 15%",
     selectValue: "Village culturel de Lesedi",
     about: [
       {
@@ -346,7 +348,7 @@ export const circuits = [
     duration: { fr: "Safari de 3 h ou 6 h", en: "3 or 6-hour safari" },
     group: { fr: "À partir de 2 personnes", en: "From 2 guests" },
     image: "/images/tours/pilanesberg.jpg",
-    imagePosition: "center 80%",
+    imagePosition: "center 60%",
     selectValue: "Safari à Pilanesberg",
     about: [
       {
@@ -387,6 +389,7 @@ export const circuits = [
     duration: { fr: "Demi-journée", en: "Half day" },
     group: { fr: "À partir de 2 personnes", en: "From 2 guests" },
     image: "/images/tours/maropeng.jpg",
+    imagePosition: "center 70%",
     selectValue: "Berceau de l'Humanité & Maropeng",
     about: [
       {
