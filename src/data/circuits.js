@@ -102,6 +102,7 @@ export const circuits = [
     duration: { fr: "2 h 30 ou 4 h", en: "2.5 or 4 hours" },
     group: { fr: "À partir de 2 personnes", en: "From 2 guests" },
     image: "/images/tours/soweto-velo.jpg",
+    imagePosition: "center 60%",
     selectValue: "Soweto à vélo",
     about: [
       {
@@ -145,6 +146,7 @@ export const circuits = [
     duration: { fr: "Demi-journée", en: "Half day" },
     group: { fr: "À partir de 2 personnes", en: "From 2 guests" },
     image: "/images/tours/soweto-tuktuk.jpg",
+    imagePosition: "center 45%",
     selectValue: "Soweto en tuk-tuk",
     about: [
       {
