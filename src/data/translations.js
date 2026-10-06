@@ -429,6 +429,8 @@ export const translations = {
     "Safari optionnel à Pilanesberg": "Optional safari in Pilanesberg",
 
     // Added: keys that had no English entry
+    "Désolé, votre demande n'a pas pu être envoyée. Réessayez dans un instant ou écrivez-nous à info@manguissafrique.com.": "Sorry, your request could not be sent. Please try again in a moment or email us at info@manguissafrique.com.",
+    "Envoi en cours...": "Sending...",
     "À propos": "About",
     "Navigation": "Navigation",
     "Membre agréé SATSA": "Accredited SATSA member",
