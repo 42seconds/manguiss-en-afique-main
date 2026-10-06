@@ -55,6 +55,9 @@ export default function Contact() {
       return;
     }
 
+    // The dropdown's first entry is a placeholder, not a tour.
+    const tour = data.circuit && data.circuit !== "Choisir un circuit" ? data.circuit : "Circuit non précisé";
+
     setSending(true);
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
@@ -62,14 +65,14 @@ export default function Contact() {
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
           access_key: WEB3FORMS_ACCESS_KEY,
-          subject: `Nouvelle demande de devis — ${data.circuit || "Circuit sur mesure"}`,
+          subject: `Nouvelle demande de devis — ${tour}`,
           from_name: "Site Manguissa en Afrique",
           name: data.name,
           email: data.email,
           replyto: data.email,
           "Téléphone": data.phone || "—",
           "Nombre de voyageurs": data.travellers || "—",
-          "Circuit souhaité": data.circuit,
+          "Circuit souhaité": tour,
           "Langue du site": language === "en" ? "Anglais" : "Français",
           message: data.message,
           "h-captcha-response": captchaToken,
