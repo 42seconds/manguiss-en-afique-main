@@ -429,6 +429,7 @@ export const translations = {
     "Safari optionnel à Pilanesberg": "Optional safari in Pilanesberg",
 
     // Added: keys that had no English entry
+    "Veuillez confirmer que vous n'êtes pas un robot.": "Please confirm that you are not a robot.",
     "Désolé, votre demande n'a pas pu être envoyée. Réessayez dans un instant ou écrivez-nous à info@manguissafrique.com.": "Sorry, your request could not be sent. Please try again in a moment or email us at info@manguissafrique.com.",
     "Envoi en cours...": "Sending...",
     "À propos": "About",

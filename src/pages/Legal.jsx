@@ -96,6 +96,7 @@ const privacyPolicy = {
       heading: { fr: "Cookies", en: "Cookies" },
       paragraphs: [
         { fr: "Ce site n'utilise pas de cookies publicitaires ni de suivi. Il enregistre seulement, dans votre navigateur, la langue que vous avez choisie. Les polices de caractères sont chargées depuis Google Fonts, qui reçoit à cette occasion votre adresse IP.", en: "This website does not use advertising or tracking cookies. It only stores, in your browser, the language you chose. Fonts are loaded from Google Fonts, which receives your IP address when they load." },
+        { fr: "Pour protéger le formulaire de devis contre les robots, nous utilisons hCaptcha (Intuition Machines, Inc.), qui peut traiter votre adresse IP et des informations techniques sur votre navigateur. Les demandes envoyées via le formulaire sont transmises par e-mail grâce au service Web3Forms.", en: "To protect the quote form against bots, we use hCaptcha (Intuition Machines, Inc.), which may process your IP address and technical information about your browser. Requests sent through the form are delivered by email using the Web3Forms service." },
       ],
     },
   ],

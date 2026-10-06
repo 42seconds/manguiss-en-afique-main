@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
+import HCaptcha from "@hcaptcha/react-hcaptcha";
 import { Phone, Mail, MapPin, Clock, CheckCircle2 } from "lucide-react";
 import { useCircuit } from "../context/CircuitContext";
 import { useLanguage } from "../context/LanguageContext";
 import { circuits } from "../data/circuits";
-import { WEB3FORMS_ACCESS_KEY } from "../config";
+import { HCAPTCHA_SITE_KEY, WEB3FORMS_ACCESS_KEY } from "../config";
 
 const circuitOptions = [
   { value: "Choisir un circuit", label: "Choisir un circuit" },
@@ -25,6 +26,9 @@ export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState(false);
+  const [captchaToken, setCaptchaToken] = useState("");
+  const [captchaMissing, setCaptchaMissing] = useState(false);
+  const captchaRef = useRef(null);
   const { t, language } = useLanguage();
 
   if (selectedCircuit !== prevSelectedCircuit) {
@@ -42,6 +46,10 @@ export default function Contact() {
     if (data.botcheck) return; // honeypot filled in: a bot, drop it silently
 
     setError(false);
+    if (!captchaToken) {
+      setCaptchaMissing(true);
+      return;
+    }
     if (!WEB3FORMS_ACCESS_KEY) {
       setError(true);
       return;
@@ -64,6 +72,7 @@ export default function Contact() {
           "Circuit souhaité": data.circuit,
           "Langue du site": language === "en" ? "Anglais" : "Français",
           message: data.message,
+          "h-captcha-response": captchaToken,
         }),
       });
       const result = await response.json();
@@ -74,6 +83,9 @@ export default function Contact() {
       setError(true);
     } finally {
       setSending(false);
+      // A captcha answer is single-use: ask for a fresh one for any further send.
+      captchaRef.current?.resetCaptcha();
+      setCaptchaToken("");
     }
   }
 
@@ -179,6 +191,25 @@ export default function Contact() {
                   </div>
                   {/* Honeypot: hidden from people, bots tend to tick it */}
                   <input type="checkbox" name="botcheck" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
+                  <div>
+                    <HCaptcha
+                      ref={captchaRef}
+                      sitekey={HCAPTCHA_SITE_KEY}
+                      languageOverride={language}
+                      reCaptchaCompat={false}
+                      onVerify={(token) => {
+                        setCaptchaToken(token);
+                        setCaptchaMissing(false);
+                      }}
+                      onExpire={() => setCaptchaToken("")}
+                      onError={() => setCaptchaToken("")}
+                    />
+                    {captchaMissing && (
+                      <p role="alert" className="text-sm text-red-700 mt-2">
+                        {t("Veuillez confirmer que vous n'êtes pas un robot.")}
+                      </p>
+                    )}
+                  </div>
                   {error && (
                     <p role="alert" className="text-sm text-red-700 bg-red-50 border border-red-200 rounded-brand px-4 py-3">
                       {t("Désolé, votre demande n'a pas pu être envoyée. Réessayez dans un instant ou écrivez-nous à info@manguissafrique.com.")}
