@@ -13,7 +13,7 @@ const legalNotice = {
     {
       heading: { fr: "Éditeur du site", en: "Website publisher" },
       paragraphs: [
-        { fr: "Le site manguissafrique.com est édité par Manguissa en Afrique, guide touristique francophone en Afrique du Sud.", en: "The website manguissafrique.com is published by Manguissa en Afrique, a French-speaking tour guide in South Africa." },
+        { fr: "Le site manguissafrique.com est édité par MANGUISSA SAFARI AND CULTURE TRAILS (PTY) LTD, société sud-africaine exerçant sous le nom commercial Manguissa en Afrique, guide touristique francophone en Afrique du Sud.", en: "The website manguissafrique.com is published by MANGUISSA SAFARI AND CULTURE TRAILS (PTY) LTD, a South African company trading as Manguissa en Afrique, a French-speaking tour guide in South Africa." },
         { fr: "Adresse : 5 Melrose Street, Johannesburg, Afrique du Sud", en: "Address: 5 Melrose Street, Johannesburg, South Africa" },
         { fr: "Téléphone : +27 81 783 9576", en: "Phone: +27 81 783 9576" },
         { fr: "E-mail : info@manguissafrique.com", en: "Email: info@manguissafrique.com" },
@@ -57,7 +57,7 @@ const privacyPolicy = {
     {
       heading: { fr: "Qui sommes-nous ?", en: "Who we are" },
       paragraphs: [
-        { fr: "Manguissa en Afrique (5 Melrose Street, Johannesburg, Afrique du Sud) est responsable du traitement des données personnelles collectées sur ce site. Nous respectons la loi sud-africaine sur la protection des données personnelles (POPIA) et, pour nos visiteurs européens, le Règlement général sur la protection des données (RGPD).", en: "Manguissa en Afrique (5 Melrose Street, Johannesburg, South Africa) is responsible for the personal data collected on this website. We comply with South Africa's Protection of Personal Information Act (POPIA) and, for our European visitors, the General Data Protection Regulation (GDPR)." },
+        { fr: "MANGUISSA SAFARI AND CULTURE TRAILS (PTY) LTD, exerçant sous le nom Manguissa en Afrique (5 Melrose Street, Johannesburg, Afrique du Sud), est responsable du traitement des données personnelles collectées sur ce site. Nous respectons la loi sud-africaine sur la protection des données personnelles (POPIA) et, pour nos visiteurs européens, le Règlement général sur la protection des données (RGPD).", en: "MANGUISSA SAFARI AND CULTURE TRAILS (PTY) LTD, trading as Manguissa en Afrique (5 Melrose Street, Johannesburg, South Africa), is responsible for the personal data collected on this website. We comply with South Africa's Protection of Personal Information Act (POPIA) and, for our European visitors, the General Data Protection Regulation (GDPR)." },
         { fr: "Pour toute question sur vos données : info@manguissafrique.com", en: "For any question about your data: info@manguissafrique.com" },
       ],
     },
