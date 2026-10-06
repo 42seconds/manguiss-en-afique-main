@@ -19,13 +19,14 @@ export default function TourCard({ circuit, showFilterTag = false, onViewDetails
       <button
         onClick={() => onViewDetails?.(circuit)}
         className="h-[200px] relative flex items-end p-4 overflow-hidden bg-gradient-to-br from-gold/70 to-navy/70 text-left w-full"
-        aria-label={`Voir les détails de ${t(circuit.title)}`}
+        aria-label={`${t("Voir les détails")} : ${t(circuit.title)}`}
       >
         {circuit.image && (
           <img
             src={circuit.image}
             alt={t(circuit.title)}
             loading="lazy"
+            style={{ objectPosition: circuit.imagePosition }}
             onError={(e) => (e.currentTarget.style.display = "none")}
             className="absolute inset-0 w-full h-full object-cover"
           />

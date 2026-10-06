@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
+import HCaptcha from "@hcaptcha/react-hcaptcha";
 import { Phone, Mail, MapPin, Clock, CheckCircle2 } from "lucide-react";
 import { useCircuit } from "../context/CircuitContext";
 import { useLanguage } from "../context/LanguageContext";
 import { circuits } from "../data/circuits";
+import { HCAPTCHA_SITE_KEY, WEB3FORMS_ACCESS_KEY } from "../config";
 
 const circuitOptions = [
   { value: "Choisir un circuit", label: "Choisir un circuit" },
@@ -22,7 +24,12 @@ export default function Contact() {
   const [circuit, setCircuit] = useState(selectedCircuit || "Choisir un circuit");
   const [prevSelectedCircuit, setPrevSelectedCircuit] = useState(selectedCircuit);
   const [submitted, setSubmitted] = useState(false);
-  const { t } = useLanguage();
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState(false);
+  const [captchaToken, setCaptchaToken] = useState("");
+  const [captchaMissing, setCaptchaMissing] = useState(false);
+  const captchaRef = useRef(null);
+  const { t, language } = useLanguage();
 
   if (selectedCircuit !== prevSelectedCircuit) {
     setPrevSelectedCircuit(selectedCircuit);
@@ -31,9 +38,55 @@ export default function Contact() {
     }
   }
 
-  function handleSubmit(e) {
+  // Sends the enquiry by email through Web3Forms; replies go straight to the visitor's address.
+  async function handleSubmit(e) {
     e.preventDefault();
-    setSubmitted(true);
+    const form = e.currentTarget;
+    const data = Object.fromEntries(new FormData(form));
+    if (data.botcheck) return; // honeypot filled in: a bot, drop it silently
+
+    setError(false);
+    if (!captchaToken) {
+      setCaptchaMissing(true);
+      return;
+    }
+    if (!WEB3FORMS_ACCESS_KEY) {
+      setError(true);
+      return;
+    }
+
+    setSending(true);
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          subject: `Nouvelle demande de devis — ${data.circuit || "Circuit sur mesure"}`,
+          from_name: "Site Manguissa en Afrique",
+          name: data.name,
+          email: data.email,
+          replyto: data.email,
+          "Téléphone": data.phone || "—",
+          "Nombre de voyageurs": data.travellers || "—",
+          "Circuit souhaité": data.circuit,
+          "Langue du site": language === "en" ? "Anglais" : "Français",
+          message: data.message,
+          "h-captcha-response": captchaToken,
+        }),
+      });
+      const result = await response.json();
+      if (!response.ok || !result.success) throw new Error(result.message || "Send failed");
+      form.reset();
+      setSubmitted(true);
+    } catch {
+      setError(true);
+    } finally {
+      setSending(false);
+      // A captcha answer is single-use: ask for a fresh one for any further send.
+      captchaRef.current?.resetCaptcha();
+      setCaptchaToken("");
+    }
   }
 
   return (
@@ -95,21 +148,21 @@ export default function Contact() {
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-[13px] font-semibold mb-2">{t("Nom complet *")}</label>
-                      <input required type="text" placeholder={t("Votre nom")} className="w-full px-4 py-3 rounded-brand border border-navy/10 bg-white text-[15px]" />
+                      <input required name="name" type="text" autoComplete="name" placeholder={t("Votre nom")} className="w-full px-4 py-3 rounded-brand border border-navy/10 bg-white text-[15px]" />
                     </div>
                     <div>
                       <label className="block text-[13px] font-semibold mb-2">{t("Email *")}</label>
-                      <input required type="email" placeholder="vous@exemple.com" className="w-full px-4 py-3 rounded-brand border border-navy/10 bg-white text-[15px]" />
+                      <input required name="email" type="email" autoComplete="email" placeholder="vous@exemple.com" className="w-full px-4 py-3 rounded-brand border border-navy/10 bg-white text-[15px]" />
                     </div>
                   </div>
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-[13px] font-semibold mb-2">{t("Téléphone")}</label>
-                      <input type="tel" placeholder="+33 ..." className="w-full px-4 py-3 rounded-brand border border-navy/10 bg-white text-[15px]" />
+                      <input name="phone" type="tel" autoComplete="tel" placeholder="+33 ..." className="w-full px-4 py-3 rounded-brand border border-navy/10 bg-white text-[15px]" />
                     </div>
                     <div>
                       <label className="block text-[13px] font-semibold mb-2">{t("Nombre de voyageurs")}</label>
-                      <select className="w-full px-4 py-3 rounded-brand border border-navy/10 bg-white text-[15px]">
+                      <select name="travellers" className="w-full px-4 py-3 rounded-brand border border-navy/10 bg-white text-[15px]">
                         <option value="">{t("Sélectionner")}</option>
                         <option value="1">{t("1 personne")}</option>
                         <option value="2">{t("2 personnes")}</option>
@@ -122,6 +175,7 @@ export default function Contact() {
                   <div>
                     <label className="block text-[13px] font-semibold mb-2">{t("Circuit souhaité")}</label>
                     <select
+                      name="circuit"
                       value={circuit}
                       onChange={(e) => setCircuit(e.target.value)}
                       className="w-full px-4 py-3 rounded-brand border border-navy/10 bg-white text-[15px]"
@@ -133,10 +187,40 @@ export default function Contact() {
                   </div>
                   <div>
                     <label className="block text-[13px] font-semibold mb-2">{t("Votre message *")}</label>
-                    <textarea required placeholder={t("Parlez-nous de votre projet de voyage...")} className="w-full px-4 py-3 rounded-brand border border-navy/10 bg-white text-[15px] min-h-[100px]" />
+                    <textarea required name="message" placeholder={t("Parlez-nous de votre projet de voyage...")} className="w-full px-4 py-3 rounded-brand border border-navy/10 bg-white text-[15px] min-h-[100px]" />
                   </div>
-                  <button type="submit" className="w-full bg-gold hover:bg-golddark text-white font-semibold py-[15px] rounded-brand transition-colors cursor-pointer">
-                    {t("Envoyer ma demande")}
+                  {/* Honeypot: hidden from people, bots tend to tick it */}
+                  <input type="checkbox" name="botcheck" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
+                  <div>
+                    <HCaptcha
+                      ref={captchaRef}
+                      sitekey={HCAPTCHA_SITE_KEY}
+                      languageOverride={language}
+                      reCaptchaCompat={false}
+                      onVerify={(token) => {
+                        setCaptchaToken(token);
+                        setCaptchaMissing(false);
+                      }}
+                      onExpire={() => setCaptchaToken("")}
+                      onError={() => setCaptchaToken("")}
+                    />
+                    {captchaMissing && (
+                      <p role="alert" className="text-sm text-red-700 mt-2">
+                        {t("Veuillez confirmer que vous n'êtes pas un robot.")}
+                      </p>
+                    )}
+                  </div>
+                  {error && (
+                    <p role="alert" className="text-sm text-red-700 bg-red-50 border border-red-200 rounded-brand px-4 py-3">
+                      {t("Désolé, votre demande n'a pas pu être envoyée. Réessayez dans un instant ou écrivez-nous à info@manguissafrique.com.")}
+                    </p>
+                  )}
+                  <button
+                    type="submit"
+                    disabled={sending}
+                    className="w-full bg-gold hover:bg-golddark disabled:opacity-60 disabled:cursor-wait text-white font-semibold py-[15px] rounded-brand transition-colors cursor-pointer"
+                  >
+                    {sending ? t("Envoi en cours...") : t("Envoyer ma demande")}
                   </button>
                 </form>
               </>

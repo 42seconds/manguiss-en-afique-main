@@ -1,11 +1,37 @@
 /* eslint-disable react-refresh/only-export-components */
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { translations } from "../data/translations";
 
 const LanguageContext = createContext(null);
+const STORAGE_KEY = "manguissa-language";
+
+// Remember the visitor's choice across reloads; storage can be unavailable (private mode), so never let it throw.
+function readStoredLanguage() {
+  try {
+    const stored = window.localStorage.getItem(STORAGE_KEY);
+    return stored === "en" || stored === "fr" ? stored : "fr";
+  } catch {
+    return "fr";
+  }
+}
+
+const pageTitles = {
+  fr: "Manguissa en Afrique — Guide francophone en Afrique du Sud",
+  en: "Manguissa en Afrique — French-speaking guide in South Africa",
+};
 
 export function LanguageProvider({ children }) {
-  const [language, setLanguage] = useState("fr");
+  const [language, setLanguage] = useState(readStoredLanguage);
+
+  useEffect(() => {
+    document.documentElement.lang = language;
+    document.title = pageTitles[language];
+    try {
+      window.localStorage.setItem(STORAGE_KEY, language);
+    } catch {
+      // ignore: the choice just won't survive a reload
+    }
+  }, [language]);
 
   const toggleLanguage = () => {
     setLanguage((prev) => (prev === "fr" ? "en" : "fr"));
