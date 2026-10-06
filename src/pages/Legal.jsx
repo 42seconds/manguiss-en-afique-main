@@ -1,7 +1,7 @@
 import { useLanguage } from "../context/LanguageContext";
 
 // Details only the business owner can supply. Replace these before launch.
-const REGISTRATION_NUMBER = { fr: "[numéro d'enregistrement CIPC à compléter]", en: "[CIPC registration number to be completed]" };
+const REGISTRATION_NUMBER = { fr: "2025/806051/07 (CIPC)", en: "2025/806051/07 (CIPC)" };
 const PUBLICATION_DIRECTOR = { fr: "[nom du responsable à compléter]", en: "[name of the person responsible to be completed]" };
 
 const LAST_UPDATED = { fr: "Dernière mise à jour : 30 septembre 2026", en: "Last updated: 30 September 2026" };
